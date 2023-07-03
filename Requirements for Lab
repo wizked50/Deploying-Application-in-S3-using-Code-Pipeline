@@ -1,0 +1,16 @@
+# PREREQUISITE FOR LAB
+
+1. Create an AWS account and administrative user.
+2. Apply IAM managed policy for administrative access to CodePipeline.
+3. Create an application in CodeDeploy.
+
+## The Create Pipeline wizard in the AWS CodePipeline console is the simplest method for building pipelines compared to its competitors like Jenkins and Github Actions.
+
+In this lesson, you will build a two-stage pipeline to release a sample application to Windows 2019 servers using CodeDeploy, and a versioned S3 bucket.
+The under-listed steps are required to arrive at a working two-stage pipeline:
+
+Step 1: Create an S3 bucket for your application.
+Step 2: Create Amazon EC2 Windows instances and install the CodeDeploy agent.
+Step 3: Create an application in CodeDeploy.
+Step 4: Create your first pipeline in CodePipeline.
+Step 5: Clean up resources
