@@ -1,0 +1,30 @@
+Step 3: Create an application in CodeDeploy
+The code you want to deploy through CodeDeploy is identified by an application, which is a name. This name is used by CodeDeploy to make sure the proper revision, deployment configuration, and deployment group are referred to during a deployment. Later in this lesson, when you create your pipeline, you choose the name of the CodeDeploy application you create in this step.
+To utilize CodeDeploy, you first need to build a service role. A service role that you have already created does not need to be created again.
+To create a CodeDeploy service role
+Open the IAM console at https://console.aws.amazon.com/iam/).
+From the console dashboard, choose Roles.
+Choose Create role.
+Under Select trusted entity, choose AWS service. Under Use case, choose CodeDeploy. Choose CodeDeploy from the options listed. Choose Next. The AWSCodeDeployRole managed policy is already attached to the role.
+Choose Next.
+Enter a name for the role (for example, CodeDeployRole), and then choose Create role.
+To create an application in CodeDeploy
+Open the CodeDeploy console at https://console.aws.amazon.com/codedeploy.
+If the Applications page does not appear, on the AWS CodeDeploy menu, choose Applications.
+Choose Create application.
+In Application name, enter WindowsAppDeploy.
+In Compute Platform, choose EC2/On-premises.
+Choose Create application.
+
+
+To create a deployment group in CodeDeploy
+On the page that displays your application, choose Create deployment group.
+In Deployment group name, enter WindowsDeployment.
+In Service role, choose the service role you created earlier. You must use a service role that trusts AWS CodeDeploy with, at minimum, the trust and permissions described in Create a Service Role for CodeDeploy.
+Under Deployment type, choose In-place.
+Under Environment configuration, choose Amazon EC2 Instances. Choose Name in the Key field, and in the Value field, enter WindowsDeploy.
+Under Agent configuration with AWS Systems Manager, choose Now and schedule updates. This installs the agent on the instance. The Windows instance is already configured with the SSM agent and will now be updated with the CodeDeploy agent.
+Under Deployment settings, choose CodeDeployDefault.OneAtaTime.
+Under Load Balancer, make sure the Enable load balancing box is not selected. You do not need to set up a load balancer or choose a target group for this example. After you de-select the checkbox, the load balancer options do not display.
+In the Advanced section, leave the defaults.
+Choose Create deployment group.
