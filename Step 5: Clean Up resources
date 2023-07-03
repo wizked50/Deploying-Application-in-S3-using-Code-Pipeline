@@ -1,0 +1,4 @@
+Step 5: Clean Up resources
+Ensure to terminate your Windows Ec2 instances in order to avoid charges billed to your AWS account. If the instances are required for subsequent exercises or lab, you may stop the instances as against terminating them.
+Further to this, empty your s3 bucket in order to allow complete deletion of the bucket.
+THANK YOU FOR GOING THROUGH THIS TUTORIAL. HAPPY HOLIDAYS AND STAY TUNED FOR MORE DEVOPS TUTORIALS BY DANIEL E.K.
