@@ -1,10 +1,12 @@
 Step 4: Create your first pipeline in CodePipeline
+
 You will construct the pipeline in this lesson section. The pipeline automatically moves the sample through each step.
-To create a CodePipeline automated release process
-Sign in to the AWS Management Console and open the CodePipeline console at http://console.aws.amazon.com/codesuite/codepipeline/home.
+
+To create a CodePipeline automated release process, Sign in to the AWS Management Console and open the CodePipeline console at http://console.aws.amazon.com/codesuite/codepipeline/home.
 On the Welcome page, Getting started page, or the Pipelines page, choose Create pipeline.
-In Step 1: Choose pipeline settings, in Pipeline name, enter WindowsDeploy.
-In Service role, do one of the following: 
+
+ In Step 1: Choose pipeline settings, in Pipeline name, enter WindowsDeploy.
+ In Service role, do one of the following: 
 - Choose New service role to allow CodePipeline to create a new service role in IAM.
 - Choose Existing service role to use a service role already created in IAM. In Role name, choose your service role from the list.
 Leave the settings under Advanced settings at their defaults, and then choose Next.
@@ -14,7 +16,6 @@ In Step 3: Add build stage, choose Skip build stage, and then accept the warning
 In Step 4: Add deploy stage, in Deploy provider, choose CodeDeploy . The Region field defaults to the same AWS Region as your pipeline. In Application name, enter WindowsAppDeploy, or choose the Refresh button, and then choose the application name from the list. In Deployment group, enter WindowsDeployment, or choose it from the list, and then choose Next.
 In Step 5: Review, review the information, and then choose Create pipeline.
 The pipeline starts to run. You can view progress and success and failure messages as the CodePipeline sample deploys a webpage to each of the Amazon EC2 instances in the CodeDeploy deployment.
-
 
 
 Congratulations! You just created a simple pipeline in CodePipeline. The pipeline has two stages:
