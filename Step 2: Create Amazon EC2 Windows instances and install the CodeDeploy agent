@@ -1,31 +1,32 @@
 Step 2: Create Amazon EC2 Windows instances and install the CodeDeploy agent
+
+
 This stage involves creating the Windows Server Amazon EC2 instances to which a sample application will be deployed. This method includes the creation of an instance role with policies that permit the installation and administration of the CodeDeploy agent on the instances. An instance can be used in CodeDeploy deployments thanks to the CodeDeploy agent, a software package. Additionally, you add policies that let the instance to download the files needed by the CodeDeploy agent to deploy your application and to be controlled by SSM.
 To create an instance role
-Open the IAM console at https://console.aws.amazon.com/iam/).
-From the console dashboard, choose Roles.
-Choose Create role.
-Under Select type of trusted entity, select AWS service. Under Choose a use case, select EC2, and then choose Next: Permissions.
-Search for and select the policy named AmazonEC2RoleforAWSCodeDeploy.
-Search for and select the policy named AmazonSSMManagedInstanceCore. Choose Next: Tags.
-Choose Next: Review. Enter a name for the role (for example, CodeEC2Deploy). Choose Create role.
+
+1. Open the IAM console at https://console.aws.amazon.com/iam/).
+2. From the console dashboard, choose Roles.
+3. Choose Create role.
+4. Under Select type of trusted entity, select AWS service. Under Choose a use case, select EC2, and then choose Next: Permissions.
+5. Search for and select the policy named AmazonEC2RoleforAWSCodeDeploy.
+6. Search for and select the policy named AmazonSSMManagedInstanceCore. Choose Next: Tags.
+7. Choose Next: Review. Enter a name for the role (for example, CodeEC2Deploy). Choose Create role.
+
 Note
 Make a note of your role name for the next step. You choose this role when you are creating your instance.
 
 
-
-
-
 To launch instances
-Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/.
-From the side navigation, choose Instances, and select Launch instances from the top of the page.
-Under Name and tags, in Name, enter WindowsDeploy. This assigns the instances a tag Key of Name and a tag Value of WindowsDeploy. Later, you create a CodeDeploy application that deploys the sample application to the instances. CodeDeploy selects instances to deploy based on the tags.
-Under Application and OS Images (Amazon Machine Image), choose the Windows option. (This AMI is described as the Microsoft Windows Server 2019 Base and is labeled “Free tier eligible” and can be found under Quick Start..)
-Under Instance type, choose the free tier eligible t2.micro type as the hardware configuration for your instance.
-Under Key pair (login), choose a key pair or create one.
-Under Network settings, do the following. In Auto-assign Public IP, make sure the status is Enable.
-Next to Assign a security group, choose Create a new security group.
-In the row for SSH, under Source type, choose My IP.
-Choose Add security group, choose HTTP, and then under Source type, choose My IP.
+1. Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/.
+2. From the side navigation, choose Instances, and select Launch instances from the top of the page.
+3. Under Name and tags, in Name, enter WindowsDeploy. This assigns the instances a tag Key of Name and a tag Value of WindowsDeploy. Later, you create a CodeDeploy application that deploys the sample application to the instances. CodeDeploy selects instances to deploy based on the tags.
+4. Under Application and OS Images (Amazon Machine Image), choose the Windows option. (This AMI is described as the Microsoft Windows Server 2019 Base and is labeled “Free tier eligible” and can be found under Quick Start..)
+5. Under Instance type, choose the free tier eligible t2.micro type as the hardware configuration for your instance.
+6. Under Key pair (login), choose a key pair or create one.
+7. Under Network settings, do the following. In Auto-assign Public IP, make sure the status is Enable.
+  a) Next to Assign a security group, choose Create a new security group.
+  b) In the row for SSH, under Source type, choose My IP.
+  c) Choose Add security group, choose HTTP, and then under Source type, choose My IP.
 8. Expand Advanced details. In IAM instance profile, choose the IAM role you created in the previous procedure (for example, CodeEC2Deploy).
 9. Under Summary, under Number of instances, enter 2.
 10. Choose Launch instance.
