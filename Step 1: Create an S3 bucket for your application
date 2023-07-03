@@ -1,14 +1,18 @@
 Step 1: Create an S3 bucket for your application
+
+
 The source code or application(s) can be stored in any versioned location. For the sample application files in this tutorial, you will create an S3 bucket and enable versioning on it. Once versioning has been enabled, copy the example applications to that bucket.
+
 To create an S3 bucket
-Sign in to the console at AWS Management Console. Open the S3 console.
-Choose Create bucket.
-In Bucket name, enter a name for your bucket (for example, windowspipelinedeploy).
-After the bucket is created, a success banner displays. Choose Go to bucket details.
-On the Properties tab, choose Versioning. Choose Enable versioning, and then choose Save. When versioning is enabled, Amazon S3 saves every version of every object in the bucket.
-On the Permissions tab, leave the defaults and disable Object Lock.
-Next, download a sample and save it into a folder or directory on your local computer.
-In the Amazon S3 console, open your bucket and upload the file:
+
+1. Sign in to the console at AWS Management Console. Open the S3 console.
+2. Choose Create bucket.
+3. In Bucket name, enter a name for your bucket (for example, windowspipelinedeploy).
+4. After the bucket is created, a success banner displays. Choose Go to bucket details.
+5. On the Properties tab, choose Versioning. Choose Enable versioning, and then choose Save. When versioning is enabled, Amazon S3 saves every version of every object in the bucket.
+6. On the Permissions tab, leave the defaults and disable Object Lock.
+7. Next, download a sample and save it into a folder or directory on your local computer.
+8. In the Amazon S3 console, open your bucket and upload the file:
 a. Choose Upload.
 b. Drag and drop the file or choose Add folder and browse for the folder.
 c. Choose Upload.
@@ -19,10 +23,12 @@ Note
 Because all bucket names in Amazon S3 must be unique, use one of your own, not the name shown in the example. You can change the example name just by adding the date to it. Make a note of this name because you need it for the rest of this tutorial.
 In Region, choose the Region where you intend to create your pipeline, such as US East (N. Virginia), and then choose Create bucket.
 The sample application contains the following files for deploying with CodeDeploy:
-appspec.yml — The application specification file (AppSpec file) is a YAML-formatted file used by CodeDeploy to manage a deployment. For more information about the AppSpec file, see CodeDeploy AppSpec File reference in the AWS CodeDeploy User Guide.
-index.html — The index file contains the home page for the deployed sample application.
-LICENSE.txt — The license file contains license information for the sample application.
-Files for scripts — The sample application uses scripts to write text files to a location on your instance. One file is written for each of several CodeDeploy deployment lifecycle events as follows:
+
+- appspec.yml — The application specification file (AppSpec file) is a YAML-formatted file used by CodeDeploy to manage a deployment. For more information about the AppSpec file, see CodeDeploy AppSpec File reference in the AWS CodeDeploy User Guide.
+- index.html — The index file contains the home page for the deployed sample application.
+- LICENSE.txt — The license file contains license information for the sample application.
+- Files for scripts — The sample application uses scripts to write text files to a location on your instance. One file is written for each of several CodeDeploy deployment lifecycle events as follows:
 (Windows sample only) before-install.bat — This is a batch script for the BeforeInstall deployment lifecycle event, which will run to remove old files written during previous deployments of this sample and create a location on your instance to which to write the new files.
+
 Note : For Linux deployment you can edit the before-install.bat file to .sh. Don’t forget to chmod file for the script to be executable.
 
